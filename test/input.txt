@@ -1,0 +1,7 @@
+BEGIN
+{"id":2,"market":7,"price":10,"volume":100,"is_buy":true}
+{"id":3,"market":7,"price":20,"volume":200,"is_buy":false}
+{"id":4,"market":7,"price":30,"volume":200,"is_buy":true}
+{"id":5,"market":7,"price":40,"volume":500,"is_buy":false}
+{"id":1,"market":8,"price":7.37,"volume":2633.63,"is_buy":true}
+END

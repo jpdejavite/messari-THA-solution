@@ -21,8 +21,11 @@ func TestIntegration(t *testing.T) {
 		`{"id":5,"market":7,"price":40,"volume":500,"is_buy":false}`,
 		"END",
 	}
-	result := `{"market":8,"total_volume":2633.63,"mean_price":7.37,"mean_volume":2633.63,"volume_weighted_average_price":7.37,"percentage_buy":1}
-{"market":7,"total_volume":1000,"mean_price":25,"mean_volume":250,"volume_weighted_average_price":31,"percentage_buy":0.5}
+	result := `{"market":7,"total_volume":1000,"mean_price":25,"mean_volume":250,"volume_weighted_average_price":31.000000000000004,"percentage_buy":0.5}
+{"market":8,"total_volume":2633.63,"mean_price":7.37,"mean_volume":2633.63,"volume_weighted_average_price":7.37,"percentage_buy":1}
+`
+	result2 := `{"market":7,"total_volume":1000,"mean_price":25,"mean_volume":250,"volume_weighted_average_price":31,"percentage_buy":0.5}
+{"market":8,"total_volume":2633.63,"mean_price":7.37,"mean_volume":2633.63,"volume_weighted_average_price":7.37,"percentage_buy":1}
 `
 
 	cmd := exec.Command("go", "run", "../../main.go")
@@ -43,7 +46,7 @@ func TestIntegration(t *testing.T) {
 		t.Errorf("Error on command output, %v", e)
 	}
 
-	if result != string(out) {
-		t.Errorf("IntegrationTest() got = %v, want %v", string(out), result)
+	if result != string(out) && result2 != string(out) {
+		t.Errorf("IntegrationTest()\n got = %v, want %v", string(out), result)
 	}
 }
