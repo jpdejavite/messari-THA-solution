@@ -5,7 +5,7 @@ test:
 
 integration-test:
 	go clean -testcache
-	export EXECUTE_INTEGRATION_TEST=TRUE && go test ./... -race -coverprofile cp.out -v
+	export EXECUTE_INTEGRATION_TEST=TRUE && go test ./... -race -coverprofile cp.out
 
 run:
-	go run main.go < test/integration-test.txt
+	go run main.go < test/input-performance.txt
